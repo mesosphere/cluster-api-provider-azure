@@ -132,13 +132,6 @@ func (mw *azureManagedControlPlaneWebhook) ValidateUpdate(ctx context.Context, o
 	}
 
 	if err := webhookutils.ValidateImmutable(
-		field.NewPath("Spec", "SubscriptionID"),
-		old.Spec.SubscriptionID,
-		m.Spec.SubscriptionID); err != nil {
-		allErrs = append(allErrs, err)
-	}
-
-	if err := webhookutils.ValidateImmutable(
 		field.NewPath("Spec", "ResourceGroupName"),
 		old.Spec.ResourceGroupName,
 		m.Spec.ResourceGroupName); err != nil {
